@@ -40,8 +40,8 @@ const HeroSection = () => {
         </div>
         <Image
           src="/images/img-hero.png"
-          width={700}
-          height={950}
+          width={450}
+          height={750}
           alt="image sporton hero"
           className="absolute -right-5 top-1/2 -translate-y-1/2"
         />

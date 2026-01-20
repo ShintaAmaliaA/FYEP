@@ -14,40 +14,41 @@ const ProductActions = () => {
   const { push } = useRouter();
   const [qty, setQty] = useState(1);
 
-  const checkout = () => {};
-
   return (
-    <div className="flex gap-5">
-      <div className="border border-gray-500 inline-flex w-fit min-w-20.5">
-        <div className="aspect-square text-xl font-medium border-r border-gray-500 flex justify-center items-center">
-          <span>{qty}</span>
+    <div className="flex items-center gap-6">
+      <div className="flex items-center border border-gray-300 rounded-md overflow-hidden h-11">
+        <div className="w-12 text-center text-sm font-medium">
+          {qty}
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col border-l border-gray-300">
           <button
-            className="border-b border-gray-500 cursor-pointer h-1/2 aspect-square flex items-center justify-center"
             onClick={() => setQty(qty + 1)}
+            className="h-5 w-6 flex items-center justify-center hover:bg-gray-100 transition"
           >
-            <FiChevronUp />
+            <FiChevronUp size={14} />
           </button>
           <button
-            className="cursor-pointer h-1/2 aspect-square flex items-center justify-center"
             onClick={() => setQty(qty > 1 ? qty - 1 : qty)}
+            className="h-5 w-6 flex items-center justify-center hover:bg-gray-100 transition"
+            disabled={qty === 1}
           >
-            <FiChevronDown />
+            <FiChevronDown size={14} />
           </button>
         </div>
       </div>
-      <Button className="px-20 w-full">
-        <FiShoppingBag size={24} />
+
+      <Button className="px-6 py-3 text-sm gap-2">
+        <FiShoppingBag size={16} />
         Add to Cart
       </Button>
+
       <Button
         variant="dark"
-        className="px-20 w-full"
+        className="px-6 py-3 text-sm gap-2"
         onClick={() => push("/checkout")}
       >
         Checkout Now
-        <FiArrowRight size={24} />
+        <FiArrowRight size={16} />
       </Button>
     </div>
   );
